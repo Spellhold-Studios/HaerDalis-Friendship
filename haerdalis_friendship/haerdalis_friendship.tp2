@@ -20,23 +20,27 @@ ALWAYS
 		OUTER_SPRINT name_source ~bg2_chapter_%i%~
 		OUTER_SET EVAL ~%name_source%~ = bg2_chapter
 	END
-
+	
+  ACTION_IF NOT GAME_IS ~bg2ee eet~ BEGIN 
 	/* Converts tra files to UTF-8 */
 	// Borrowed from Edwin Romance: convert strings to UTF-8 for BGEE/BG2EE
 	// setup.tra contains in game texts as well as installation texts and need to be converted
-	ACTION_DEFINE_ARRAY noconvert BEGIN END
-	ACTION_DEFINE_ARRAY reload BEGIN setup END
+	ACTION_DEFINE_ARRAY noconvert BEGIN setup END
+	ACTION_DEFINE_ARRAY reload BEGIN END
 
 	LAF HANDLE_CHARSETS
 		INT_VAR
 			infer_charset = 1
+			from_utf8 = 1
 		STR_VAR
 			tra_path = EVAL ~%MOD_FOLDER%/translations~
 		// charset_table = charsets // Use HANDLE_CHARSETS built-in rule for charset choice
 			noconvert_array = noconvert
 			reload_array = reload
 	END
-
+	
+  END
+  
 END
 
 AUTO_TRA ~haerdalis_friendship/translations/%s~
@@ -44,6 +48,10 @@ AUTO_TRA ~haerdalis_friendship/translations/%s~
 LANGUAGE ~English~
          ~english~
          ~haerdalis_friendship/translations/english/setup.tra~
+		 
+LANGUAGE ~Simplified Chinese (by Yoshimo0417)~
+         ~schinese~
+         ~haerdalis_friendship/translations/schinese/setup.tra~
 
 
 /* ======================================== *
