@@ -44,7 +44,10 @@ AUTO_TRA ~haerdalis_friendship/translations/%s~
 LANGUAGE ~English~
          ~english~
          ~haerdalis_friendship/translations/english/setup.tra~
-
+		 
+LANGUAGE ~Russian by Saermor & arcanecoast.ru~
+         ~russian~
+         ~haerdalis_friendship/translations/russian/setup.tra~
 
 /* ======================================== *
  *    Haer'Dalis Friendship for BG2: ToB    *
